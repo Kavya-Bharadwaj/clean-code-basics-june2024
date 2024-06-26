@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 26 04:48:16 2024
+# Make data base, printed on Wed Jun 26 05:53:56 2024
 
 # Variables
 
@@ -229,8 +229,6 @@ GTK_IM_MODULE_FILE = /home/kvy5kor/snap/code/common/.cache/immodules/immodules.c
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-VSCODE_L10N_BUNDLE_LOCATION = 
-# environment
 GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
@@ -277,12 +275,13 @@ http_proxy = http://127.0.0.1:3128/
 # environment
 LANG = C
 # environment
- 
 TERM = xterm-256color
+ 
 # environment
-VSCODE_PID = 69072
+ 
+VSCODE_PID = 73278
 # variable set hash-table stats:
-# Load=134/1024=13%, Rehash=0, Collisions=19/159=12%
+# Load=133/1024=13%, Rehash=0, Collisions=19/158=12%
 
 # Pattern-specific Variable Values
 
@@ -290,9 +289,9 @@ VSCODE_PID = 69072
 
 # Directories
 
-# . (device 64768, inode 1350485): 13 files, no impossibilities.
+# . (device 64768, inode 1350485): 17 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -307,18 +306,18 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
-Main.exe: StateHandlers.o DigitalSwitch.o Main.o
+Main.exe: StateHandlerFactory.o StateHandlers.o DigitalSwitch.o Main.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
-	g++ -std=c++11 StateHandlers.o DigitalSwitch.o Main.o -o Main.exe
+	g++ -std=c++11 StateHandlerFactory.o StateHandlers.o DigitalSwitch.o Main.o -o Main.exe
 	rm *.o
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2024-06-26 03:41:56.286624437
+#  Last modified 2024-06-26 05:52:40.542515559
 #  File has been updated.
 #  Successfully updated.
 
@@ -342,6 +341,13 @@ DigitalSwitch.o:
 #  recipe to execute (from 'Makefile', line 9):
 	g++ -std=c++11 -c -g DigitalSwitch.cpp -o DigitalSwitch.o
 
+StateHandlerFactory.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
+	g++ -std=c++11 -c -g StateHandlerFactory.cpp -o StateHandlerFactory.o
+
 Main.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -350,19 +356,19 @@ Main.o:
 	g++ -std=c++11 -c -g Main.cpp -o Main.o
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/24=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 239 B / avg = 11 B
-# current buf: size = 8162 B / used = 239 B / count = 21 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 352 B / avg = 13 B
+# current buf: size = 8162 B / used = 352 B / count = 26 / avg = 13 B
 
-# strcache performance: lookups = 33 / hit rate = 36%
+# strcache performance: lookups = 40 / hit rate = 35%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/33=3%
-# Finished Make data base on Wed Jun 26 04:48:16 2024
+# Load=26/8192=0%, Rehash=0, Collisions=1/40=2%
+# Finished Make data base on Wed Jun 26 05:53:56 2024
 
  

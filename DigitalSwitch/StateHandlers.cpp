@@ -1,5 +1,17 @@
 #include <iostream>
 #include "StateHandlers.h"
+#include "StateHandlerFactory.h"
+#include "Defines.h"
+
+bool OffStateHandler::isRegistered = StateHandlerFactory::registerState(SwitchState::OFF, &OffStateHandler::createOffStateHandler);
+bool LowStateHandler::isRegistered = StateHandlerFactory::registerState(SwitchState::LOW, &LowStateHandler::createLowStateHandler);
+bool ModerateStateHandler::isRegistered = StateHandlerFactory::registerState(SwitchState::MODERATE, &LowStateHandler::createLowStateHandler);
+bool HighStateHandler::isRegistered = StateHandlerFactory::registerState(SwitchState::HIGH, &HighStateHandler::createHighStateHandler);
+
+IStateHandler* OffStateHandler::createOffStateHandler()
+{
+    return new OffStateHandler();
+}
 
 void OffStateHandler::handleState(IContext* context)
 {
@@ -12,6 +24,11 @@ SwitchState OffStateHandler::handleOffState()
 {
     std::cout << "Handling OFF state" << std::endl;
     return SwitchState::LOW;
+}
+
+IStateHandler* LowStateHandler::createLowStateHandler()
+{
+    return new LowStateHandler();
 }
 
 void LowStateHandler::handleState(IContext* context)
@@ -27,6 +44,11 @@ SwitchState LowStateHandler::handleLowState()
     return SwitchState::MODERATE;
 }
 
+IStateHandler* ModerateStateHandler::createModerateStateHandler()
+{
+    return new ModerateStateHandler();
+}
+
 void ModerateStateHandler::handleState(IContext* context)
 {
     SwitchState nextState; 
@@ -38,6 +60,11 @@ SwitchState ModerateStateHandler::handleModerateState()
 {
     std::cout << "Handling MODERATE state" << std::endl;
     return SwitchState::HIGH;
+}
+
+IStateHandler* HighStateHandler::createHighStateHandler()
+{
+    return new HighStateHandler();
 }
 
 void HighStateHandler::handleState(IContext* context)

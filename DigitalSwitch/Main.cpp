@@ -1,9 +1,12 @@
 #include <iostream>
 #include "DigitalSwitch.h"
+#include "IStateHandlerFactory.h"
+#include "StateHandlerFactory.h"
 
 int main()
 {
-    DigitalSwitch dSwitch(SwitchState::OFF);
+    IStateHandlerFactory* factory = new StateHandlerFactory();
+    DigitalSwitch dSwitch(SwitchState::OFF, factory);
     
     std::cout << "Press the Switch - 1" << std::endl;
     dSwitch.press();

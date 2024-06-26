@@ -5,18 +5,20 @@
 #include "IContext.h"
 #include "IStateHandler.h"
 #include "StateHandlers.h"
+#include "IStateHandlerFactory.h"
 
 class DigitalSwitch : public IContext
 {
     private:
         SwitchState currentState;
         IStateHandler* currentStateHandler;
+        IStateHandlerFactory* stateHandlerFactory;
     public:
-        DigitalSwitch(SwitchState initState);
+        DigitalSwitch(SwitchState initState, IStateHandlerFactory* factory);
+        ~DigitalSwitch();
         void press();
         SwitchState getState();
         virtual void setState(SwitchState nextState);
-        IStateHandler* createState(SwitchState state);
 };
 
 #endif

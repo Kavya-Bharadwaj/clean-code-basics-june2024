@@ -6,26 +6,42 @@
 
 class OffStateHandler : public IStateHandler
 {
-    void handleState(IContext* context);
-    SwitchState handleOffState();
+    public:
+        static bool isRegistered;
+    public:
+        static IStateHandler* createOffStateHandler();
+        void handleState(IContext* context);
+        SwitchState handleOffState();
 };
 
 class LowStateHandler : public IStateHandler
 {
-    void handleState(IContext* context);
-    SwitchState handleLowState();
+    public:
+        static bool isRegistered;
+    public:
+        static IStateHandler* createLowStateHandler();
+        void handleState(IContext* context);
+        SwitchState handleLowState();
 };
 
 class ModerateStateHandler : public IStateHandler
 {
-    void handleState(IContext* context);
-    SwitchState handleModerateState();
+    public:
+        static bool isRegistered;
+    public:
+        static IStateHandler* createModerateStateHandler();
+        void handleState(IContext* context);
+        SwitchState handleModerateState();
 };
 
 class HighStateHandler : public IStateHandler
 {
-    void handleState(IContext* context);
-    SwitchState handleHighState();
+    public:
+        static bool isRegistered;
+    public:
+        static IStateHandler* createHighStateHandler();
+        void handleState(IContext* context);
+        SwitchState handleHighState();
 };
 
 #endif

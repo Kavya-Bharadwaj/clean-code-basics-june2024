@@ -1,36 +1,24 @@
 #include "DigitalSwitch.h"
 #include "StateHandlers.h"
+#include <iostream>
 
-DigitalSwitch::DigitalSwitch(SwitchState initState)
+DigitalSwitch::DigitalSwitch(SwitchState initState, IStateHandlerFactory* factory)
 {
-    currentStateHandler = createState(initState);
+    stateHandlerFactory = factory;
+    if(stateHandlerFactory != nullptr)
+    {
+        currentStateHandler = stateHandlerFactory->createState(initState);
+    }
 }
 
-IStateHandler* DigitalSwitch::createState(SwitchState state)
+DigitalSwitch::~DigitalSwitch()
 {
-    IStateHandler* statePtr = nullptr;
-    switch (state)
-    {
-        case SwitchState::OFF:
-            statePtr = new OffStateHandler();
-            break;
-        case SwitchState::LOW:
-            statePtr = new LowStateHandler();
-            break;
-        case SwitchState::MODERATE:
-            statePtr = new ModerateStateHandler();
-            break;
-        case SwitchState::HIGH:
-            statePtr = new HighStateHandler();
-            break;
-        default:
-            break;
-    }
-    return statePtr;
+    delete stateHandlerFactory;
 }
 
 void DigitalSwitch::press()
 {
+    std::cout << "Call currentStateHandler->handleState\n";
     currentStateHandler->handleState(this);
 }
 
@@ -41,6 +29,6 @@ SwitchState DigitalSwitch::getState()
 
 void DigitalSwitch::setState(SwitchState nextState)
 {
-    //delete currentStateHandler;
-    //currentStateHandler = createState(nextState);
+    delete currentStateHandler;
+    currentStateHandler = stateHandlerFactory->createState(nextState);
 }
