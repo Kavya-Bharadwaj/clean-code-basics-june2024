@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 26 04:52:20 2024
+# Make data base, printed on Wed Jun 26 04:48:16 2024
 
 # Variables
 
@@ -43,7 +45,7 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024
+CURDIR := /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch
 # makefile
 SHELL = /bin/sh
 # environment
@@ -64,8 +66,8 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 SNAP_INSTANCE_NAME = code
 # environment
 SNAP_ARCH = amd64
-# makefile
-MAKEFILE_LIST := 
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
@@ -87,7 +89,7 @@ MANAGERPID = 2570
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
-VSCODE_CWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024
+VSCODE_CWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch
 # environment
 GSETTINGS_SCHEMA_DIR = /home/kvy5kor/snap/code/162/.local/share/glib-2.0/schemas
 # environment
@@ -135,7 +137,7 @@ no_proxy = localhost,127.0.0.1,127.*,::1,172.16.*,172.17.*,172.18.*,172.19.*,172
 # environment
 FTP_PROXY = http://127.0.0.1:3128/
 # environment
-PWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024
+PWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch
 # default
 .LOADED := 
 # environment
@@ -199,7 +201,7 @@ USER = kvy5kor
 # environment
 SNAP_REVISION = 162
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := Main.exe
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
@@ -207,7 +209,7 @@ XDG_CURRENT_DESKTOP = Unity
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch
+OLDPWD = /home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024
 # default
 .VARIABLES := 
 # automatic
@@ -226,6 +228,8 @@ MFLAGS = -pqrR
 GTK_IM_MODULE_FILE = /home/kvy5kor/snap/code/common/.cache/immodules/immodules.cache
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # environment
 GDK_BACKEND = x11
 # automatic
@@ -273,14 +277,12 @@ http_proxy = http://127.0.0.1:3128/
 # environment
 LANG = C
 # environment
-TERM = xterm-256color
  
-make: *** No rule to make target 'all'.  Stop.
-
+TERM = xterm-256color
 # environment
-VSCODE_PID = 70439
+VSCODE_PID = 69072
 # variable set hash-table stats:
-# Load=133/1024=13%, Rehash=0, Collisions=19/155=12%
+# Load=134/1024=13%, Rehash=0, Collisions=19/159=12%
 
 # Pattern-specific Variable Values
 
@@ -288,9 +290,9 @@ VSCODE_PID = 70439
 
 # Directories
 
-# . (device 64768, inode 1350312): 8 files, no impossibilities.
+# . (device 64768, inode 1350485): 13 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -305,19 +307,27 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+Main.exe: StateHandlers.o DigitalSwitch.o Main.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 2):
+	g++ -std=c++11 StateHandlers.o DigitalSwitch.o Main.o -o Main.exe
+	rm *.o
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2024-06-26 03:41:56.286624437
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+StateHandlers.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 7):
+	g++ -std=c++11 -c -g StateHandlers.cpp -o StateHandlers.o
 
 # Not a target:
 .DEFAULT:
@@ -325,27 +335,34 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+DigitalSwitch.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 9):
+	g++ -std=c++11 -c -g DigitalSwitch.cpp -o DigitalSwitch.o
+
+Main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 5):
+	g++ -std=c++11 -c -g Main.cpp -o Main.o
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/24=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 146 B / avg = 9 B
-# current buf: size = 8162 B / used = 146 B / count = 16 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 21 / storage = 239 B / avg = 11 B
+# current buf: size = 8162 B / used = 239 B / count = 21 / avg = 11 B
 
-# strcache performance: lookups = 19 / hit rate = 15%
+# strcache performance: lookups = 33 / hit rate = 36%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Wed Jun 26 04:52:20 2024
+# Load=21/8192=0%, Rehash=0, Collisions=1/33=3%
+# Finished Make data base on Wed Jun 26 04:48:16 2024
 
  

@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch'
+g++ -std=c++11 -c -g StateHandlers.cpp -o StateHandlers.o
+g++ -std=c++11 -c -g DigitalSwitch.cpp -o DigitalSwitch.o
+g++ -std=c++11 -c -g Main.cpp -o Main.o
+g++ -std=c++11 StateHandlers.o DigitalSwitch.o Main.o -o Main.exe
+rm *.o
+make: Leaving directory '/home/kvy5kor/samba/trial/cleancode/clean-code-basics-june2024/DigitalSwitch'
+ 

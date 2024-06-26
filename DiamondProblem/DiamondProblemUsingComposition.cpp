@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 class IPrinter
 {
@@ -37,19 +38,23 @@ class S : public IScanner
 class PS : public IPrinter, public IScanner
 {
     private:
-        P printer;
-        S scanner;
+        IPrinter* printer;
+        IScanner* scanner;
     public:
-        PS()
-        { std::cout << "PS Constructor" << std::endl;}
+        PS(IPrinter& pObj, IScanner& sObj)
+        { 
+            std::cout << "PS Constructor" << std::endl;
+            printer = &pObj;
+            scanner = &sObj;
+        }
         ~PS() { std::cout << "PS destructor called " << std::endl;}
         void print()
         {
-            printer.print();
+            printer->print();
         }
         void scan()
         {
-            scanner.scan();
+            scanner->scan();
         }
 };
 
@@ -67,7 +72,7 @@ int main()
 {
     P pObj;
     S sObj;
-    PS psObj;
+    PS psObj(pObj, sObj);
 
     printTask(&pObj);
     printTask(&psObj);
